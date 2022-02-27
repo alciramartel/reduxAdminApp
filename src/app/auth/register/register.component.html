@@ -66,9 +66,12 @@
               <button
                 class="btn btn-primary submit-btn btn-block"
                 type="submit"
-                [disabled]="registerForm.invalid"
+                [disabled]="registerForm.invalid || isLoading"
               >
-                Create account
+                <span *ngIf="!isLoading"> Create account </span>
+                <span *ngIf="isLoading"
+                  >Loading... <i class="fa fa-spin fa-sync"></i
+                ></span>
               </button>
             </div>
             <div class="text-block text-center my-3">

@@ -43,9 +43,12 @@
               <button
                 class="btn btn-primary submit-btn btn-block"
                 type="submit"
-                [disabled]="loginForm.invalid"
+                [disabled]="loginForm.invalid || isLoading"
               >
-                Login
+                <span *ngIf="!isLoading"> Login </span>
+                <span *ngIf="isLoading"
+                  >Loading... <i class="fa fa-spin fa-sync"></i
+                ></span>
               </button>
             </div>
 
